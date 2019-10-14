@@ -8,7 +8,7 @@ close all
 clear variables
 clc
 
-zadanie = 4;
+zadanie = 5;
 
 switch(zadanie)
     case 1 % Zad 1
@@ -35,21 +35,29 @@ switch(zadanie)
         disp(p2);
        
     case 3 % Zad 3
-        X = randn(50, 1);
-        X2 = rand(50,1);
+        X = randn(500, 1);
+        X2 = rand(500,1);
         %plot(x,y);
         check_dist(X)
         check_dist(X2)
 
     case 4 % Zad 4
-        X = randn(10, 12); % K x N
-        est(X);
+        px = 1:26;
+        s1 = zeros(6,1);
+        s2 = zeros(6,1);
+        s3 = zeros(6,1);
+        for i = 1:26
+            X = randn(10, i); % K x N
+            [s1(i), s2(i), s3(i)] = est(X);
+        end
+        figure;
+        plot(px, s1, px, s2, px, s3);
         
     case 5 % Zad 5
         mi = 0;
         sigma = 1;
         
-        N1 = 100
+        N1 = 200;
         N2 = 1000;
         N3 = 10000;
         N4 = 100000;
@@ -59,7 +67,7 @@ switch(zadanie)
         X3 = randn(N3, 1) * sigma + mi;
         X4 = randn(N4, 1) * sigma + mi;
         
-        comp_hist(X4, 20);
+        comp_hist(X1, 20);
         
         [py1, px1] = ecdf(X1);
         [py2, px2] = ecdf(X2);

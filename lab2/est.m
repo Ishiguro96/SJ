@@ -21,9 +21,9 @@ for i = 1:N
     med(i) = std(X(:, i));
 end
 
-s_sr = s_sr / K
-r_sr = r_sr / K
-med = median(med)
+s_sr = s_sr / N;
+r_sr = r_sr / N;
+med = median(med);
 
 s1 = a(K) * s_sr
 s2 = b(K) * r_sr
