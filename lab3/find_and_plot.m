@@ -1,3 +1,13 @@
+%{
+Wywolanie w kodzie
+x_min = -5;
+x_max = 5;
+px = x_min:0.01:x_max;
+fun = @(x)0.1*(x.^4 - 20*x.^2 + 5*x);
+A = [1; -1];
+b = [5; 5];
+%}
+
 function find_and_plot(px, fun, A, b, iters)
 
 % Generate plot for function
