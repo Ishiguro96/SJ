@@ -1,3 +1,40 @@
+%{
+Wywolanie w kodzie
+==== Zadanie 2 ====
+x_min = -5;
+x_max = 5;
+px = x_min:0.01:x_max;
+fun = @(x)0.1*(x.^4 - 20*x.^2 + 5*x);
+A = [1; -1];
+b = [5; 5];
+
+==== Zadanie 3 ====
+mi = 0;
+x_min = -5;
+x_max = 5;
+px = x_min:0.01:x_max;
+A = [1; -1];
+b = [5; 5];
+
+for n=1:4
+    switch(n)
+        case 1
+            sigma = 0.0025;
+        case 2
+            sigma = 0.01;
+        case 3
+            sigma = 0.25;
+        case 4
+            sigma = 1;
+    end
+
+    fun = @(x)0.1*(x.^4 - 20*x.^2 + 5*x) + (randn(size(x)) .* sigma + mi);
+    find_and_plot(px, fun, A, b, 5);
+    title(['Function with noise N(', num2str(mi), ', ', num2str(sigma), ')']);
+
+end
+%}
+
 function find_and_plot(px, fun, A, b, iters)
 
 % Generate plot for function
