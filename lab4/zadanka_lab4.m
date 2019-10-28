@@ -1,3 +1,7 @@
+%% Przyklad odpalenia
+X = randn(15,1)*1 + 0;
+[TV, CV, D] = sig_level_avg(0.001, X, 0.00, 'bilateral', true) % alfa, X, testowana srednia, rodzaj testu
+
 %%
 % Zadanie 1
 %
